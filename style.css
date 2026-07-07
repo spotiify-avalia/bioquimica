@@ -73,6 +73,49 @@ ul {
 }
 
 /* =========================================================
+   TOP BANNER
+========================================================= */
+.top-banner {
+  background-color: #3b8242; /* Green background */
+  color: var(--white);
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #d35400; /* Orange/Red progress */
+  width: 100%; /* Will animate via JS */
+  z-index: 1;
+  transition: width 1s linear;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+  font-size: clamp(0.7rem, 2.5vw, 0.95rem);
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.highlight-time {
+  color: #f1c40f; /* Yellow */
+}
+
+/* =========================================================
    UTILITÁRIOS
 ========================================================= */
 .container {
@@ -855,6 +898,87 @@ footer {
 
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
+
+/* =========================================================
+   13. COMPARATIVO & CONTEÚDO
+========================================================= */
+.comparativo-section {
+  background-color: var(--bg-color);
+}
+
+.comparativo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .comparativo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.comparativo-item {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--primary-soft);
+}
+
+.comparativo-label {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.comparativo-img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.conteudo-section {
+  background-color: var(--primary-soft);
+}
+
+.conteudo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .conteudo-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.conteudo-list {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.conteudo-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.conteudo-list li i {
+  color: var(--accent);
+}
+
 
 /* =========================================================
    13. MODAL UPSELL

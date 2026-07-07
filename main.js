@@ -1,5 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // Top Banner Date
+    const dateSpan = document.getElementById('current-date');
+    if (dateSpan) {
+        const today = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        dateSpan.textContent = today.toLocaleDateString('pt-BR', options);
+    }
+    
+    // Top Banner Countdown & Progress
+    const countdownSpan = document.getElementById('countdown');
+    const progressBar = document.getElementById('banner-progress');
+    
+    if (countdownSpan && progressBar) {
+        let totalSeconds = 10 * 60; // 10 minutes
+        const savedTime = localStorage.getItem('offerCountdown');
+        
+        if (savedTime && !isNaN(savedTime) && savedTime > 0) {
+            totalSeconds = parseInt(savedTime);
+        }
+        
+        const initialSeconds = 10 * 60;
+
+        const updateTimer = () => {
+            if (totalSeconds <= 0) {
+                totalSeconds = 0; // Freeze at zero
+            }
+            
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            countdownSpan.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            const percentage = (totalSeconds / initialSeconds) * 100;
+            progressBar.style.width = `${percentage}%`;
+            
+            localStorage.setItem('offerCountdown', totalSeconds);
+            
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            }
+        };
+        
+        updateTimer(); // Initial call
+        setInterval(updateTimer, 1000); // Tick every second
+    }
+    
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
     
@@ -106,12 +151,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeUpsell = (e) => {
         if(e) e.preventDefault();
         upsellModal.style.display = 'none';
-        // Optional: you can redirect to checkout 14,90 here if declined
-        // window.location.href = 'CHECKOUT_14_90_URL';
     };
 
     if (closeModal) closeModal.addEventListener('click', closeUpsell);
-    if (btnDeclineOffer) btnDeclineOffer.addEventListener('click', closeUpsell);
+    
+    if (btnDeclineOffer) {
+        btnDeclineOffer.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = 'https://pay.lowify.com.br/checkout?product_id=3eBnGE';
+        });
+    }
     
     // Close modal when clicking outside of it
     window.addEventListener('click', (e) => {
