@@ -39,6 +39,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -47,6 +49,7 @@ body {
   background-color: var(--bg-color);
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -290,6 +293,13 @@ section {
 }
 
 @media (max-width: 991px) {
+  .hero {
+    min-height: 100vh; /* 9:16 full vertical feel */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 0;
+  }
   .hero-container {
     display: flex;
     flex-direction: column;
