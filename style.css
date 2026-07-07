@@ -81,7 +81,7 @@ ul {
 
 .text-center { text-align: center; }
 .text-left { text-align: left; }
-.text-white { color: var(--white); }
+.text-white { color: var(--white) !important; }
 .mx-auto { margin-inline: auto; }
 .w-full { width: 100%; }
 .mt-2 { margin-top: 2rem; }
@@ -108,14 +108,14 @@ section {
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(1.6rem, 5vw, 2.75rem);
   color: var(--primary);
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
 .section-subtitle {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 3vw, 1.125rem);
   color: var(--text-muted);
   margin-bottom: 3rem;
   max-width: 700px;
@@ -132,13 +132,19 @@ section {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 1.25rem 2.5rem;
+  padding: 1rem 1.5rem;
   border-radius: 99px;
   cursor: pointer;
   transition: var(--transition);
   border: none;
-  font-size: 1.125rem;
+  font-size: 1rem;
   text-align: center;
+}
+@media (min-width: 768px) {
+  .cta-button {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+  }
 }
 
 .primary-btn {
@@ -240,7 +246,7 @@ section {
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.1;
@@ -281,6 +287,22 @@ section {
   position: relative;
   z-index: 1;
   animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 991px) {
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-content {
+    display: contents; /* Enables reordering children with hero-mockup */
+  }
+  .hero-content .badge { order: 1; margin: 0 auto 1.5rem; }
+  .hero-content h1 { order: 2; margin-bottom: 1rem; }
+  .hero-mockup { order: 3; margin: 1.5rem 0; }
+  .hero-content p { order: 4; font-size: 1rem; margin-bottom: 1.5rem; }
+  .hero-content .cta-button { order: 5; margin-bottom: 1.5rem; }
+  .hero-content .hero-guarantees { order: 6; margin-top: 0; }
 }
 
 @keyframes float {
@@ -568,7 +590,7 @@ section {
 }
 
 .price .amount {
-  font-size: 4rem;
+  font-size: clamp(3rem, 10vw, 4rem);
   font-weight: 800;
   line-height: 1;
 }
