@@ -171,8 +171,8 @@
                         <h3>Plano Essencial</h3>
                         <div class="price">
                             <span class="currency">R$</span>
-                            <span class="amount">17</span>
-                            <span class="period">,00</span>
+                            <span class="amount">14</span>
+                            <span class="period">,90</span>
                         </div>
                     </div>
                     <div class="card-body">
@@ -183,19 +183,20 @@
                             <li class="disabled"><i data-lucide="x"></i> Bônus: Mapas Metabólicos</li>
                             <li class="disabled"><i data-lucide="x"></i> Atualizações Futuras</li>
                         </ul>
-                        <a href="#" class="cta-button outline-btn">QUERO O ESSENCIAL</a>
+                        <button id="btn-essencial" class="cta-button outline-btn w-full">QUERO O ESSENCIAL</button>
                     </div>
                 </div>
 
                 <!-- Plano Premium -->
                 <div class="pricing-card premium-card">
                     <div class="popular-badge">🔥 MAIS ESCOLHIDO</div>
+                    <img src="oferta-checkout.png" alt="Bioquímica Ilustrada Pacote Completo" class="premium-img">
                     <div class="card-header">
                         <h3>Plano Premium</h3>
                         <div class="price">
                             <span class="currency">R$</span>
-                            <span class="amount">37</span>
-                            <span class="period">,00</span>
+                            <span class="amount">24</span>
+                            <span class="period">,90</span>
                         </div>
                     </div>
                     <div class="card-body">
@@ -332,13 +333,45 @@
                     <li><i data-lucide="check-circle"></i> Bônus 3: Checklist de Estudos</li>
                     <li><i data-lucide="check-circle"></i> Garantia Incondicional de 7 Dias</li>
                 </ul>
-                <div class="stack-price">Apenas R$37,00</div>
+                <div class="stack-price">Apenas R$24,90</div>
                 <a href="#oferta" class="cta-button primary-btn w-full pulse">
                     SIM! QUERO APRENDER BIOQUÍMICA FÁCIL
                 </a>
             </div>
         </div>
     </section>
+
+    <!-- MODAL DE UPSELL -->
+    <div id="upsellModal" class="modal">
+        <div class="modal-content text-center">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header-alert">
+                <i data-lucide="alert-triangle" class="alert-icon"></i>
+                <h2>ESPERE! TEMOS UMA OFERTA EXCLUSIVA PARA VOCÊ!</h2>
+            </div>
+            
+            <p class="modal-subtitle">Você está prestes a levar o pacote básico, mas não feche essa página ainda...</p>
+            
+            <div class="modal-offer-box">
+                <p class="offer-highlight">POR APENAS <strong>R$ 19,90</strong> VOCÊ LEVA TUDO!</p>
+                <p>Isso mesmo! Adicionando só <strong>5 reais</strong> você desbloqueia o <strong>Pacote Premium Completo</strong> com:</p>
+                <ul class="modal-features check-list text-left mx-auto">
+                    <li><i data-lucide="check-circle-2"></i> E-book Bioquímica Ilustrada</li>
+                    <li><i data-lucide="check-circle-2"></i> Bônus 1: Guia de Revisão Rápida</li>
+                    <li><i data-lucide="check-circle-2"></i> Bônus 2: Mapa Completo das Vias</li>
+                    <li><i data-lucide="check-circle-2"></i> Bônus 3: Checklist Inteligente</li>
+                    <li><i data-lucide="check-circle-2"></i> Acesso Vitalício + Atualizações</li>
+                </ul>
+            </div>
+            
+            <p class="modal-urgency">⚠️ Essa é a sua única chance. Se fechar agora, essa oferta de R$ 19,90 será perdida para sempre.</p>
+            
+            <div class="modal-actions">
+                <a href="#" class="cta-button primary-btn pulse w-full btn-upgrade">SIM, QUERO TUDO POR R$ 19,90!</a>
+                <a href="#" class="decline-offer" id="btn-decline-offer">Não, vou ficar apenas com o básico por R$ 14,90 (sem os bônus)</a>
+            </div>
+        </div>
+    </div>
 
     <!-- 12° RODAPÉ -->
     <footer>

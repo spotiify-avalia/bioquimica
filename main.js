@@ -89,4 +89,35 @@ document.addEventListener('DOMContentLoaded', () => {
             carousel.scrollLeft = scrollLeft - walk;
         });
     }
+
+    // Modal Upsell Logic
+    const btnEssencial = document.getElementById('btn-essencial');
+    const upsellModal = document.getElementById('upsellModal');
+    const closeModal = document.querySelector('.close-modal');
+    const btnDeclineOffer = document.getElementById('btn-decline-offer');
+
+    if (btnEssencial && upsellModal) {
+        btnEssencial.addEventListener('click', (e) => {
+            e.preventDefault();
+            upsellModal.style.display = 'block';
+        });
+    }
+
+    const closeUpsell = (e) => {
+        if(e) e.preventDefault();
+        upsellModal.style.display = 'none';
+        // Optional: you can redirect to checkout 14,90 here if declined
+        // window.location.href = 'CHECKOUT_14_90_URL';
+    };
+
+    if (closeModal) closeModal.addEventListener('click', closeUpsell);
+    if (btnDeclineOffer) btnDeclineOffer.addEventListener('click', closeUpsell);
+    
+    // Close modal when clicking outside of it
+    window.addEventListener('click', (e) => {
+        if (e.target === upsellModal) {
+            closeUpsell();
+        }
+    });
+
 });
